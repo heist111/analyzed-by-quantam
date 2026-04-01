@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Analysis Bets</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- Background dollar signs -->
+    <div class="dollar-bg-container"></div>
+
+    <div class="container">
+        <h1>⚡ Quantum Analysis Bets ⚡</h1>
+
+        <div class="search">
+            <input type="text" id="teamSearch" placeholder="Type team name...">
+            <button onclick="searchTeamMatches()">Search Matches</button>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('live')">Live</button>
+            <button class="tab-button" onclick="showTab('upcoming')">Upcoming</button>
+            <button class="tab-button" onclick="showTab('history')">History</button>
+        </div>
+
+        <section id="live" class="tab-content"></section>
+        <section id="upcoming" class="tab-content"></section>
+        <section id="history" class="tab-content"></section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
