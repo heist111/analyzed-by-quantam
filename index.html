@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quantum Analysis Bets</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Chart.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quantum Analysis Bets</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
 
-    <!-- Background dollar signs -->
-    <div class="dollar-bg-container"></div>
+<!-- BACKGROUND -->
+<div class="dollar-bg-container"></div>
 
-    <div class="container">
-        <h1>⚡ Quantum Analysis Bets ⚡</h1>
+<h1>⚡ Quantum Analysis Bets</h1>
 
-        <div class="search">
-            <input type="text" id="teamSearch" placeholder="Type team name...">
-            <button onclick="searchTeamMatches()">Search Matches</button>
-        </div>
+<!-- SEARCH -->
+<div class="search-box" style="text-align:center; margin-bottom:15px;">
+    <input type="text" id="teamSearch" placeholder="Search team...">
+    <button onclick="searchTeamMatches()">Search</button>
+</div>
 
-        <div class="tabs">
-            <button class="tab-button active" onclick="showTab('live')">Live</button>
-            <button class="tab-button" onclick="showTab('upcoming')">Upcoming</button>
-            <button class="tab-button" onclick="showTab('history')">History</button>
-        </div>
+<!-- SAFE MATCHES -->
+<div id="safeMatches"></div>
 
-        <section id="live" class="tab-content"></section>
-        <section id="upcoming" class="tab-content"></section>
-        <section id="history" class="tab-content"></section>
-    </div>
+<!-- TABS -->
+<div class="tabs" style="text-align:center; margin-bottom:15px;">
+    <button class="tab-btn" onclick="showTab('live')">Live Matches</button>
+    <button class="tab-btn" onclick="showTab('upcoming')">Upcoming Matches</button>
+</div>
 
-    <script src="script.js"></script>
+<!-- MATCH DISPLAY -->
+<div id="live" class="tab-content active"></div>
+<div id="upcoming" class="tab-content"></div>
+
+<!-- HISTORY -->
+<h2 style="text-align:center;">✅ Correct Predictions (Last 7 Days)</h2>
+<div id="history" style="text-align:center;"></div>
+
+<!-- ================= KIMI AI (BOTTOM-RIGHT) ================= -->
+<div id="kimi-box">
+    <div id="kimi-header">KIMI 🤖</div>
+    <div id="kimi-messages"></div>
+    <input 
+        type="text" 
+        id="kimi-input" 
+        placeholder="Ask or complain..." 
+        onkeypress="handleKimi(event)">
+</div>
+
+<!-- SCRIPT -->
+<script src="kimi_match_handler.js"></script>
+<script src="script.js"></script>
+
 </body>
-
 </html>
